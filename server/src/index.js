@@ -1,16 +1,10 @@
-require('dotenv').config();
 const express = require('express');
-const healthRouter = require('../routes/health');
-
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
-
-app.use('/api/health', healthRouter);
-
-app.listen(PORT, () => {
-  console.log(Server running on http ://localhost:${PORT})
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
 });
 
-module.exports = app;
+app.listen(3001, () => {
+  console.log('Server running on http://localhost:3001');
+});
