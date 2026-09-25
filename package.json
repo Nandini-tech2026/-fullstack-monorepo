@@ -1,0 +1,13 @@
+{
+    "name": "fullstack-monorepo",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": ["client", "server"],
+    "scripts": {
+      "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+      "test": "npm run test --workspaces"
+    },
+    "devDependencies": {
+      "concurrently": "^8.0.0"
+    }
+  }
